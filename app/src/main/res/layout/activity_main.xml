@@ -1,0 +1,167 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000F">
+
+    <!--  <com.totoo.TouhouMassLight.util.GameworldView
+          android:id="@+id/horizontalScrollView1"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />-->
+
+    <!-- <FrameLayout -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="match_parent" > -->
+
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrey"
+        android:visibility="gone"
+        />
+    <!-- <ScrollView -->
+    <!-- android:id="@+id/scrollView1" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_alignParentLeft="true" -->
+    <!-- android:layout_alignParentTop="true" > -->
+
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/splashcontainer"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:alpha="10">-->
+
+
+    <!--&lt;!&ndash; <ImageView &ndash;&gt;-->
+    <!--&lt;!&ndash; android:id="@+id/imageView1" &ndash;&gt;-->
+    <!--&lt;!&ndash; android:layout_width="wrap_content" &ndash;&gt;-->
+    <!--&lt;!&ndash; android:layout_height="wrap_content" &ndash;&gt;-->
+    <!--&lt;!&ndash; android:src="@drawable/gameworld" /> &ndash;&gt;-->
+    <!--</FrameLayout>-->
+    <!-- </ScrollView> -->
+    <!-- </FrameLayout> -->
+    <!-- </HorizontalScrollView> -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:id="@+id/boximageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="80dp"
+            android:background="@color/colorWhite" />
+
+        <!-- <TextView -->
+        <!-- android:id="@+id/CancelA" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignRight="@+id/buttonA" -->
+        <!-- android:layout_below="@+id/buttonB" -->
+        <!-- android:layout_marginTop="40dp" -->
+        <!-- android:alpha="0.6" -->
+        <!-- android:text="@string/chooseB" -->
+        <!-- android:textColor="@color/colorWhite" /> -->
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/boximageView"
+            android:layout_alignRight="@+id/boximageView"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/seekBar1"
+            android:layout_centerHorizontal="true"
+            android:text="速度"
+            android:textColorHint="@color/colorWhite"
+            android:textColorLink="@color/colorBlue" />
+
+        <!-- <DigitalClock -->
+        <!-- android:id="@+id/digitalClock1" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_above="@+id/imageView1" -->
+        <!-- android:layout_alignLeft="@+id/mediaController1" -->
+        <!-- android:text="DigitalClock" /> -->
+
+        <TextView
+            android:id="@+id/buttonB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/buttonA"
+            android:layout_alignTop="@+id/buttonA"
+            android:layout_marginTop="20dp"
+            android:alpha="0.6"
+            android:text="人机对战"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/CancelB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonB"
+            android:layout_centerHorizontal="true"
+            android:alpha="0.6"
+            android:text="故事模式"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/buttonA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="75dp"
+            android:alpha="0.6"
+            android:text="@string/chooseA"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/CancelB"
+            android:layout_below="@+id/CancelB"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="游戏演示"
+            android:textColor="@color/colorWhite" />
+
+    </RelativeLayout>
+
+    <!-- <SurfaceView -->
+    <!-- android:id="@+id/video_surface" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="200dp" -->
+    <!-- android:layout_alignParentLeft="true" -->
+    <!-- android:layout_alignParentRight="true" -->
+    <!-- android:layout_alignParentTop="true" -->
+    <!-- android:visibility="gone" /> -->
+
+
+    <!-- <videoView -->
+    <!-- android:id="@+id/videoView" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="200dp" -->
+    <!-- android:layout_alignParentLeft="true" -->
+    <!-- android:layout_alignParentRight="true" -->
+    <!-- android:layout_alignParentTop="true" /> -->
+
+</RelativeLayout>

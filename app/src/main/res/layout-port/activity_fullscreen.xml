@@ -1,0 +1,227 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000" >
+
+    <!-- <totoo.touhou.GameView android:id="@+id/gameView1" -->
+    <!-- android:layout_width="fill_parent" -->
+    <!-- android:layout_height="fill_parent"> -->
+    <!-- <ShowHeathView android:id="@+id/showHeathView1" -->
+    <!-- android:layout_width="fill_parent" -->
+    <!-- android:layout_height="20dp"> -->
+<!--    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/bS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:text="強射擊 SS" />
+
+        <Button
+            android:id="@+id/bW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="80dp"
+            android:text="弱射擊 WS" />
+
+        <Button
+            android:id="@+id/bF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="220dp"
+            android:text="飛行 F" />
+
+        <Button
+            android:id="@+id/bLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="340dp"
+            android:text="左  ←  L" />
+
+        <Button
+            android:id="@+id/bUP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="320dp"
+            android:text="U   ↑  上" />
+
+        <Button
+            android:id="@+id/bDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="380dp"
+            android:text="D   ↓  下" />
+
+        <Button
+            android:id="@+id/bSC2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="0dp"
+            android:text="符卡 SC2" />
+
+        <Button
+            android:id="@+id/bSC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="80dp"
+            android:text="符卡 SC1" />
+
+        <Button
+            android:id="@+id/bA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="220dp"
+            android:text="近身   攻擊A" />
+
+        <Button
+            android:id="@+id/bRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="340dp"
+            android:text="R  → 右" />
+    </LinearLayout>-->
+
+    <com.totoo.TouhouMassLight.GameViewNew
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="0dp" />
+
+    <com.totoo.TouhouMassLight.util.ContorlView
+        android:id="@+id/cl"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:alpha="20" />
+    <TextView
+        android:id="@+id/HeathTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="100dp"
+        android:background="@color/colorGrey"
+        android:padding="10dp"
+        android:text="血量："
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <!--<HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true" >
+
+        <FrameLayout
+            android:id="@+id/FrameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="40dp" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/TextView04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginLeft="100dp"
+                        android:background="@color/colorGrey"
+                        android:padding="10dp"
+                        android:text="节操："
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorGrey"
+                        android:padding="10dp"
+                        android:text="分数："
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginLeft="100dp"
+                        android:background="@color/colorGrey"
+                        android:padding="10dp"
+                        android:text="加成："
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="40dp" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorGrey"
+                        android:text="运行时间：00：00"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp" >
+
+                    <TextView
+                        android:id="@+id/GoalText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorGrey"
+                        android:text="目标："
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <TextView
+                        android:id="@+id/GoalContext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="消灭所有敌人"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorBlue" />
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </HorizontalScrollView>-->
+
+</RelativeLayout>
