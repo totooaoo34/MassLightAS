@@ -74,7 +74,6 @@ public class FullscreenActivity extends Activity {
     private int NewMagicListSize = 72;
     protected int _pixiv;
     private boolean ExitGame = false;
-    Runnable thread;
     Thread game;
 
     @Override
@@ -83,8 +82,9 @@ public class FullscreenActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // ȫ���ö�
-        prepare(0);
-        game = new Thread(thread);
+        prepare(0);    
+        Runnable thread;
+        game = new Thread(thread);//这里有一处bug，想想是为什么
         thread = new GameThread();
         game.start();
     }
