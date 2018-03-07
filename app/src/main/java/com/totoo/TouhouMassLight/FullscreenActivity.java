@@ -82,10 +82,10 @@ public class FullscreenActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // ȫ���ö�
-        prepare(0);    
+        prepare(0);
         Runnable thread;
-        game = new Thread(thread);//这里有一处bug，想想是为什么
         thread = new GameThread();
+        game = new Thread(thread);//这里有一处bug，想想是为什么
         game.start();
     }
 
