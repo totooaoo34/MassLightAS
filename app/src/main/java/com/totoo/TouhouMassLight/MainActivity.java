@@ -19,6 +19,7 @@ import android.os.RemoteException;
 import android.provider.SyncStateContract;
 import android.util.Log;
 import android.view.Display;
+import android.view.DragEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -28,6 +29,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -117,8 +119,40 @@ public class MainActivity extends Activity
         }
     }
 
+    ImageView imageView,imageViewBack;
+    int imageViewstartX,imageViewstartY;
     void ViewInit() {
+        imageView=findViewById(R.id.boximageView);
+        imageViewBack=findViewById(R.id.boximageView);
+        imageViewstartX=(int)imageView.getWidth();
+        imageViewstartY=(int)imageView.getHeight();
 
+SeekBar mS=findViewById(R.id.seekBar1);
+        mS.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            float per;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+               // 安卓中缩放和旋转控件
+                per=(float)seekBar.getProgress()/100;
+                imageView.setScaleX(1+per );
+                imageView.setScaleY(1+per );
+                imageView.setRotation(i);
+
+                imageViewBack.setScaleX(1+per*2 );
+                imageViewBack.setScaleY(1+per *2);
+                imageViewBack.setRotation( - i*2);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 //        FrameLayout container = (FrameLayout) this
 //                .findViewById(R.id.splashcontainer);
 
