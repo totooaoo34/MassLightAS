@@ -301,6 +301,16 @@ public class GameViewNew extends View {
             temp = NewMagicList.get(i);
             if (!temp.checkLocAva(temp.XinMap, temp.YinMap, (int) startX, (int) startY, (int) endX, (int) endY)) {
                 tempCount--;
+
+if(null!=molisha)
+                if(temp.checkLocAva(temp.XinMap, temp.YinMap,  molisha.getXinMap(),
+                          molisha.getYinMap(),
+                        (int) (molisha.getXinMap()+MagicBox.width) ,
+                        (int) (molisha.getYinMap()+MagicBox.width)))
+
+                    //sleep 1秒钟
+                    molisha.Heath -= 0.01;
+
                 NewMagicList.remove(temp);
                 continue;
             }
