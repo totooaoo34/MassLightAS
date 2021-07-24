@@ -123,7 +123,7 @@ public class MainActivity extends Activity
     int imageViewstartX,imageViewstartY;
     void ViewInit() {
         imageView=findViewById(R.id.boximageView);
-        imageViewBack=findViewById(R.id.boximageView);
+        imageViewBack=findViewById(R.id.boximageViewBack);
         imageViewstartX=(int)imageView.getWidth();
         imageViewstartY=(int)imageView.getHeight();
 
