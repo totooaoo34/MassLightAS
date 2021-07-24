@@ -58,6 +58,20 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <ImageView
+            android:id="@+id/boximageView4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="80dp"
+            android:background="@color/colorGrey" />
+        <ImageView
+            android:id="@+id/boximageView3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="80dp"
+            android:background="@color/colorWhite" />
+        <ImageView
             android:id="@+id/boximageViewBack"
             android:layout_width="80dp"
             android:layout_height="80dp"

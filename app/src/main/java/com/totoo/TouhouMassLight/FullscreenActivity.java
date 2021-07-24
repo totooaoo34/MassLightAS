@@ -2,6 +2,7 @@ package com.totoo.TouhouMassLight;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -31,17 +32,9 @@ public class FullscreenActivity extends Activity {
     static Paint drawSome = null;
     public static final Double UITpersent = 0.25;
     public static final Double UIpersent2 = 0.2;
-    public int SW = 480;
-    public int SH = 768;
-    public int EarthLine = (int) (SH * 0.62);
-    int TouchArceH = (int) (SH * UITpersent);
-    int TouchArceW = (int) (SW * UITpersent);
-    int LeftDivede = (int) (SW * UITpersent);
-    int RightDivede = (int) (SW * UITpersent * 3);
-    int HighDivede = (int) (SH * UIpersent2);
-    int MiddleDivede = (int) (SH * UIpersent2 * 2);
-    int Center = (int) (SH * 0.8);
-    int LowDivede = (int) (SH * UIpersent2 * 3);
+//    public int SW = 480;
+//    public int SH = 768;
+
     static NewHero molisha;
     static NewHero reimei;
     static int MapBodderX;
@@ -72,7 +65,7 @@ public class FullscreenActivity extends Activity {
     protected TextView HeathTextView;
 
     private int NewMagicListSize = 72;
-    protected int _pixiv;
+//    protected int _pixiv=8;
     private boolean ExitGame = false;
     Thread game;
 
@@ -82,7 +75,15 @@ public class FullscreenActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // ȫ���ö�
-        prepare(0);
+//        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.MyView);
+//        int textColor = a.getColor(R.styleable.MyView_textColor,0XFFFFFFFF);
+//        float textSize = a.getDimension(R.styleable.MyView_textSize, 36);
+//
+//        mPaint.setTextSize(textSize);
+//        mPaint.setColor(textColor);
+//
+//        a.recycle();
+        prepare(8);
         Runnable thread;
         thread = new GameThread();
         game = new Thread(thread);//这里有一处bug，想想是为什么
@@ -98,12 +99,20 @@ public class FullscreenActivity extends Activity {
 
     protected void prepare(int degare) {
         initGameSource();
-        HeathTextView = initUI(_pixiv = 8);
+
+        View HeathTV= initUI();
+        HeathTextView   = (TextView) HeathTV.findViewById(R.id.HeathTextView);
+
         mHandler = new GameUIHandler(HeathTextView, FullscreenActivity.this, gv);
 
-        gv.getBoder(SW, SH, _pixiv);
+        dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int SH = dm.heightPixels;
+        int SW = dm.widthPixels;
+        gv.start(SW,SH, degare);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            gv.setRotationX(25);
+            gv.setRotationX(40);
         }
         // gv.flashThem();
     }
@@ -155,15 +164,19 @@ public class FullscreenActivity extends Activity {
 //    }
 
 
-    protected TextView initUI(int pixiv) {// ����ϵ�y
+    protected View initUI() {// ����ϵ�y
+//        _pixiv=pixiv;
         view = getLayoutInflater().inflate(R.layout.activity_fullscreen, null);
         setContentView(view);
-        gv = (GameViewNew) view.findViewById(R.id.imageView1)
-        // new GameView(this)
-        ;
+//        if(0 ==pixiv)
+        gv = (GameViewNew) view.findViewById(R.id.imageView1);
+//        gv.ShootTip(pixiv);
+//            else
+//            gv = new GameViewNew(this,savedInstanceState);
+//        ;
         contorlView = (ContorlView) findViewById(R.id.cl);
-        TextView HeathTV = (TextView) view.findViewById(R.id.HeathTextView);
-        return HeathTV;
+
+        return view;
     }
 
     //        RotateAnimation animation2 = new RotateAnimation(0, degare + 45, SW / 2, SH / 4*3);
@@ -176,20 +189,17 @@ public class FullscreenActivity extends Activity {
 
 
     protected void initGameSource() {// ��ʼ���[���YԴ
-        dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        SH = dm.heightPixels;
-        SW = dm.widthPixels;
-        EarthLine = (int) (SH * 0.62);
-        Center = (int) (SH * 0.7);
-        TouchArceH = (int) (SH * UITpersent);
-        TouchArceW = (int) (SW * UITpersent);
-        LeftDivede = (int) (SW * UITpersent);
-        RightDivede = (int) (SW * UITpersent * 3);
-        HighDivede = (int) (SH * UIpersent2);
-        MiddleDivede = (int) (SH * UIpersent2 * 2);
-        Center = (int) (SH * 0.8);
-        LowDivede = (int) (SH * UIpersent2 * 3);
+
+//        EarthLine = (int) (SH * 0.62);
+//        Center = (int) (SH * 0.7);
+//        TouchArceH = (int) (SH * UITpersent);
+//        TouchArceW = (int) (SW * UITpersent);
+//        LeftDivede = (int) (SW * UITpersent);
+//        RightDivede = (int) (SW * UITpersent * 3);
+//        HighDivede = (int) (SH * UIpersent2);
+//        MiddleDivede = (int) (SH * UIpersent2 * 2);
+//        Center = (int) (SH * 0.8);
+//        LowDivede = (int) (SH * UIpersent2 * 3);
         drawSome = new Paint();
         drawSome.setColor(Color.RED);
 
@@ -214,7 +224,10 @@ public class FullscreenActivity extends Activity {
     }
 
     protected RotateAnimation startAnimate(int degare, View viewObj) {
-
+        dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+       float SH = dm.heightPixels;
+        float SW = dm.widthPixels;
         RotateAnimation animation = new RotateAnimation(0, degare + 45, SW / 2, SH / 2);
         animation.setAnimationListener(new Animation.AnimationListener() {
 
@@ -264,7 +277,7 @@ public class FullscreenActivity extends Activity {
     }
 
     boolean PressKey(int x, int y) {// ���I푑�
-        TouchArce();
+//        TouchArce();
         if (gv.NewMagicList.size() < NewMagicListSize)
             gv.NewMagicList.add(new NewMagic(AlretString, gv.molisha.getXinMap() > x ? -1 : 1, //
                     gv.molisha.getYinMap() > y ? -1 : 1, //
@@ -278,48 +291,57 @@ public class FullscreenActivity extends Activity {
         return false;
     }
 
-    boolean TouchArce() {// �օ^��׽ϵ�y
-        if (gv.TouchX < LeftDivede) {// �ұ�
-            if (gv.TouchY < HighDivede) {// �����
-                // tz("�����");
-                SSA();
-            } else if (gv.TouchY < MiddleDivede) {// �����
-                // tz("�����");
-                WSA();
-            } else if (gv.TouchY < LowDivede) {// �w���I
-                // tz("�w���I");
-                PF();
-            } else {// ����
-                // tz("����");
-                PL();
-            }
-        } else if (gv.TouchX < RightDivede) {// �м�
-            if (gv.TouchY > Center) {// ����
-                // tz("����");
-                PD();
-            } else {// ����
-                // tz("����");
-                PU();
-            }
-        } else {// ���
-
-            if (gv.TouchY < HighDivede) {// ����1
-                // tz("����1");
-                SC1();
-            } else if (gv.TouchY < MiddleDivede) {// ����2
-                // tz("����2");
-                SC2();
-            } else if (gv.TouchY < LowDivede) {// ����
-                // tz("����");
-                A();
-            } else {// ����
-                // tz("����");
-                PR();
-            }
-        }
-
-        return false;
-    }
+//    public int EarthLine = (int) (SH * 0.62);
+//    int TouchArceH = (int) (SH * UITpersent);
+//    int TouchArceW = (int) (SW * UITpersent);
+//    int LeftDivede = (int) (SW * UITpersent);
+//    int RightDivede = (int) (SW * UITpersent * 3);
+//    int HighDivede = (int) (SH * UIpersent2);
+//    int MiddleDivede = (int) (SH * UIpersent2 * 2);
+//    int Center = (int) (SH * 0.8);
+//    int LowDivede = (int) (SH * UIpersent2 * 3);
+//    boolean TouchArce() {// �օ^��׽ϵ�y
+//        if (gv.TouchX < LeftDivede) {// �ұ�
+//            if (gv.TouchY < HighDivede) {// �����
+//                // tz("�����");
+//                SSA();
+//            } else if (gv.TouchY < MiddleDivede) {// �����
+//                // tz("�����");
+//                WSA();
+//            } else if (gv.TouchY < LowDivede) {// �w���I
+//                // tz("�w���I");
+//                PF();
+//            } else {// ����
+//                // tz("����");
+//                PL();
+//            }
+//        } else if (gv.TouchX < RightDivede) {// �м�
+//            if (gv.TouchY > Center) {// ����
+//                // tz("����");
+//                PD();
+//            } else {// ����
+//                // tz("����");
+//                PU();
+//            }
+//        } else {// ���
+//
+//            if (gv.TouchY < HighDivede) {// ����1
+//                // tz("����1");
+//                SC1();
+//            } else if (gv.TouchY < MiddleDivede) {// ����2
+//                // tz("����2");
+//                SC2();
+//            } else if (gv.TouchY < LowDivede) {// ����
+//                // tz("����");
+//                A();
+//            } else {// ����
+//                // tz("����");
+//                PR();
+//            }
+//        }
+//
+//        return false;
+//    }
 
     class GameThread implements Runnable {
         Message msg;

@@ -1,10 +1,13 @@
 package com.totoo.TouhouMassLight;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class FullscreenActivityCool extends FullscreenActivity {
@@ -18,7 +21,7 @@ public class FullscreenActivityCool extends FullscreenActivity {
         // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         // WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // ȫ���ö�
-        prepare(0);
+        prepare(16);
 //		mOrientationListener = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
 //			@Override
 //			public void onOrientationChanged(int orientation) {
@@ -39,9 +42,16 @@ public class FullscreenActivityCool extends FullscreenActivity {
     @Override
     public void prepare(int degare) {
         initGameSource();
-        HeathTextView = initUI(_pixiv = 256);
+        View HeathTV= initUI( );
+        HeathTextView   = (TextView) HeathTV.findViewById(R.id.HeathTextView);
+
         mHandler = new GameUIHandler(HeathTextView, FullscreenActivityCool.this, gv);
-        gv.getBoder(SW, SH);
+
+        dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int SH = dm.heightPixels;
+        int SW = dm.widthPixels;
+        gv.start(SW,SH, degare);
         // gv.flashThem();
     }
 
@@ -72,7 +82,7 @@ public class FullscreenActivityCool extends FullscreenActivity {
 
     @Override
     boolean PressKey(int x, int y) {// ���I푑�
-        TouchArce();
+//        TouchArce();
         return false;
     }
 

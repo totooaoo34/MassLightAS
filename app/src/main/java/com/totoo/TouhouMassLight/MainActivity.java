@@ -119,11 +119,14 @@ public class MainActivity extends Activity
         }
     }
 
-    ImageView imageView,imageViewBack;
+    ImageView imageView,imageViewBack,boximageView3,boximageView4;
     int imageViewstartX,imageViewstartY;
     void ViewInit() {
         imageView=findViewById(R.id.boximageView);
         imageViewBack=findViewById(R.id.boximageViewBack);
+        boximageView3=findViewById(R.id.boximageView3);
+        boximageView4=findViewById(R.id.boximageView4);
+
         imageViewstartX=(int)imageView.getWidth();
         imageViewstartY=(int)imageView.getHeight();
 
@@ -138,9 +141,18 @@ SeekBar mS=findViewById(R.id.seekBar1);
                 imageView.setScaleY(1+per );
                 imageView.setRotation(i);
 
-                imageViewBack.setScaleX(1+per*2 );
-                imageViewBack.setScaleY(1+per *2);
-                imageViewBack.setRotation( - i*2);
+                imageViewBack.setScaleX(1+per*1.5f );
+                imageViewBack.setScaleY(1+per *1.5f);
+                imageViewBack.setRotation( - i*1.5f);
+
+                boximageView3.setScaleX(1+per*2.0f );
+                boximageView3.setScaleY(1+per *2.0f);
+                boximageView3.setRotation( - i*2.0f);
+
+                boximageView4.setScaleX(1+per*2.4f );
+                boximageView4.setScaleY(1+per *2.4f);
+                boximageView4.setRotation( - i*2.4f);
+
             }
 
             @Override

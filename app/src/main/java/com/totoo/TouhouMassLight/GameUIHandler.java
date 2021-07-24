@@ -29,13 +29,13 @@ public class GameUIHandler extends Handler {
 //                nContext = null;
 //            }
         if (gv.molisha.Heath > 0)
-            HeathTextView.setText("Ѫ����" + gv.molisha.Heath);
+            HeathTextView.setText("生命值自己：" + gv.molisha.Heath);
         else {
-            new AlertDialog.Builder(nContext).setTitle("ϵͳ��ʾ")// ���öԻ������
+            new AlertDialog.Builder(nContext).setTitle("游戏结束")// ���öԻ������
 
-                    .setMessage("��ȷ���������ݶ���������Ƴ�ϵͳ��")// ������ʾ������
+                    .setMessage("到此为止")// ������ʾ������
 
-                    .setPositiveButton("ȷ��", new DialogInterface.OnClickListener() {// ���ȷ����ť
+                    .setPositiveButton("再来一局", new DialogInterface.OnClickListener() {// ���ȷ����ť
 
                         @Override
 
@@ -45,7 +45,7 @@ public class GameUIHandler extends Handler {
 
                         }
 
-                    }).setNegativeButton("����", new DialogInterface.OnClickListener() {// ��ӷ��ذ�ť
+                    }).setNegativeButton("重新开始", new DialogInterface.OnClickListener() {// ��ӷ��ذ�ť
 
                 @Override
 
