@@ -94,7 +94,7 @@ public class GameViewNew extends View {
     void getBoder(int _sw, int _sh) {
         getBoder(_sw, _sh, 0);
     }
-
+void start (int _sw, int _sh, int pixiv) {getBoder(_sw,  _sh,  pixiv);}
     void getBoder(int _sw, int _sh, int pixiv) {
         if (0 != pixiv)
             _pixiv = pixiv;
@@ -302,14 +302,14 @@ public class GameViewNew extends View {
             if (!temp.checkLocAva(temp.XinMap, temp.YinMap, (int) startX, (int) startY, (int) endX, (int) endY)) {
                 tempCount--;
 
-if(null!=molisha)
-                if(temp.checkLocAva(temp.XinMap, temp.YinMap,  molisha.getXinMap(),
-                          molisha.getYinMap(),
-                        (int) (molisha.getXinMap()+MagicBox.width) ,
-                        (int) (molisha.getYinMap()+MagicBox.width)))
+                if(null!=molisha)
+                    if(temp.checkLocAva(temp.XinMap, temp.YinMap,  molisha.getXinMap(),
+                            molisha.getYinMap(),
+                            (int) (molisha.getXinMap()+MagicBox.width) ,
+                            (int) (molisha.getYinMap()+MagicBox.width)))
 
-                    //sleep 1秒钟
-                    molisha.Heath -= 0.01;
+                        //sleep 1秒钟
+                        molisha.Heath -= 0.01;
 
                 NewMagicList.remove(temp);
                 continue;
